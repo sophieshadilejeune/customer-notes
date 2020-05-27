@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-5">
+      <h1>Placeholder for picture</h1>
+    </div>
+      <div class="col-5 offset-1">
+        <div class="customer-card-show">
+          <div class="customer-card-details">
+            <h1><%= @customer.name  %>
+            <p>"<%= @customer.address %>"</p>
+            <p>"<%= @customer.contact_number %>"</p>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="#map"><%= @customer.address %></a>
+            <%= link_to "Edit", edit_customer_path(@customer)  %>
+          </div>
+        </div>
+
