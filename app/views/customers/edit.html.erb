@@ -5,6 +5,7 @@
 <%= f.input :name %>
 <%= f.input :address %>
 <%= f.input :contact_number%>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
 <%= f.association :folder %>
 <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>

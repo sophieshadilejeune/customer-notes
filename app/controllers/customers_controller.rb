@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
   end
 
   def update
-   @customer = Customer.find(params[:id])
+  @customer = Customer.find(params[:id])
    @customer.update(params_customer)
    redirect_to customer_path(@customer)
   end
@@ -35,9 +35,16 @@ class CustomersController < ApplicationController
   def destroy
   end
 
+  def edit_notes
+  @customer = Customer.find(params[:id])
+  respond_to do |format|
+    format.js
+  end
+end
+
   private
 
   def params_customer
-    params.require(:customer).permit(:name, :address, :contact_number, :folder_id, :notes)
+    params.require(:customer).permit(:name, :address, :contact_number, :folder_id, :notes, photos: [])
   end
 end

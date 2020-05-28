@@ -1,14 +1,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
+
 <%= simple_form_for [@customer], validate: true do |f| %>
 <%= f.input :name %>
 <%= f.input :address %>
 <%= f.input :contact_number%>
 <%= f.association :folder %>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
 <%= f.submit "Add this customer", class: "btn btn-primary" %>
 <% end %>
 
     </div>
   </div>
 </div>
+
+
