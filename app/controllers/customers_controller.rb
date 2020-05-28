@@ -2,10 +2,28 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
+    @customers_geo = Customer.geocoded
+
+    @markers = @customers_geo.map do |customer|
+      {
+        lat: customer.latitude,
+        lng: customer.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { customer: customer })
+      }
+    end
   end
 
   def show
     @customer = Customer.find(params[:id])
+    @customer_geo = []
+    @customer_geo << @customer
+    @markers = @customer_geo.map do |customer|
+      {
+        lat: customer.latitude,
+        lng: customer.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { customer: customer })
+      }
+    end
   end
 
   def new

@@ -11,8 +11,13 @@ require("channels")
 
 import { sideBar } from './sidebar';
 import { notesEditing } from './notes_editing';
-import { gallery } from './gallery';
+import { initMapbox } from '../plugins/init_mapbox';
+
 sideBar();
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+});
+
 // gallery(imgs);
 // notesEditing();
 // Uncomment to copy all static images under ../images to the output folder and reference
