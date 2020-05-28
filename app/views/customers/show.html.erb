@@ -57,7 +57,7 @@
       <div class="col-11">
       <div class="customer-card-notes">
 
-        <% if @customer.notes.body.to_plain_text.empty? %>
+        <% if @customer.notes.body.nil? %>
 <%= render 'shared/notes_edit_form' %>
 
         <% else %>
