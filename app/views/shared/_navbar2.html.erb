@@ -1,0 +1,52 @@
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <% if user_signed_in? %>
+        <strong><%= current_user.email %></strong>
+        <% else %>
+        <strong>Stranger</strong>
+        <% end %>
+      </div>
+
+      <ul class="list-unstyled components">
+
+        <li>
+          <%= link_to "Add a folder", new_folder_path  %>
+        </li>
+        <li>
+          <%= link_to "Add a customer", new_customer_path  %>
+        </li>
+        <li>
+          <%= link_to map_path do  %>
+          <i class="fa fa-globe"></i>
+          <span>Map</span>
+          <% end %>
+        </li>
+
+
+        <%  Folder.all.each_with_index do |folder, index| %>
+        <% if index == 0 %>
+        <li class="active">
+          <% else %>
+          <li>
+            <% end %>
+            <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%=  folder.name%></a>
+            <ul class="collapse list-unstyled" id="<%= folder.name.gsub(/\s+/, "") %>Submenu">
+              <% if folder.customers.empty? %>
+                <li>
+                  <%= link_to "Add a customer", new_customer_path  %>
+                </li>
+                <% else %>
+              <% folder.customers.each do |customer| %>
+              <li>
+                <%= link_to customer.name, customer_path(customer)  %>
+              </li>
+              <% end %>
+              <% end %>
+            </ul>
+          </li>
+          <% end %>
+
+        </ul>
+      </nav>
+

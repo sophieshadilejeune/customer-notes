@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CustomerNotes</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>CustomerNotes</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+</head>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
+<body>
 
-  <body>
+ <div class="wrapper">
+  <%= render 'shared/navbar2' %>
+  <%= render 'shared/flashes' %>
 
-<div class="page-wrapper chiller-theme toggled">
-    <%= render 'shared/sidebar' %>
-    <%= render 'shared/flashes' %>
-<div class="page-content">
+  <div id="content" class="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
+
+      </div>
+    </nav>
     <%= yield %>
-  </div>
 </div>
-  </body>
+</div>
+
+</body>
 </html>

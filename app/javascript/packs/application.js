@@ -9,14 +9,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { sideBar } from './sidebar';
-import { notesEditing } from './notes_editing';
-import { initMapbox } from '../plugins/init_mapbox';
 
-sideBar();
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-});
+
 
 // gallery(imgs);
 // notesEditing();
@@ -38,11 +32,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { navbarToggle } from './navbar'
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+navbarToggle();
+initMapbox();
 });
+
 
 require("trix")
 require("@rails/actiontext")
