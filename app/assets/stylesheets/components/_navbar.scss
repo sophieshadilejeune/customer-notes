@@ -10,9 +10,22 @@
     left: 0;
     height: 100vh;
     z-index: 000;
-    background: #7386D5;
+      background-image: linear-gradient(to bottom right, $ming, #15616d91);
     color: #fff;
     transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+#sidebarCollapse {
+  background-color: $ming;
+  border-radius: 6px;
+  color: white;
+  border: none;
+  &:hover {
+    background-color: $aquamarine;
+    color: $ming;
+    border:none;
+  }
 }
 
 #sidebar.active {
@@ -66,7 +79,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: $ming;
 }
 
 #sidebar ul.components {
@@ -83,20 +96,41 @@ a, a:hover, a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: $ming;
+    background: $aquamarine;
+    i {
+    color: $aquamarine;
+    background: $ming;
+    }
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: $ming;
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: $ming;
+}
+
+#sidebar i {
+  color: $ming;
+  padding:5px;
+  border-radius: 15%;
+  background: $aquamarine;
+  margin-right: 10px;
+}
+
+#sidebar h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-top: 1px solid #47748b;
+  padding-top: 20px;
 }
 
 @media (max-width: 768px) {

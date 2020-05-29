@@ -11,10 +11,16 @@
       <ul class="list-unstyled components">
 
         <li>
-          <%= link_to "Add a folder", new_folder_path  %>
+          <%= link_to new_folder_path do  %>
+          <i class="fas fa-plus"></i>
+          <span>Add a folder</span>
+          <% end %>
         </li>
         <li>
-          <%= link_to "Add a customer", new_customer_path  %>
+          <%= link_to new_customer_path do  %>
+           <i class="fas fa-plus"></i>
+          <span>Add a customer</span>
+          <% end %>
         </li>
         <li>
           <%= link_to map_path do  %>
@@ -23,14 +29,11 @@
           <% end %>
         </li>
 
+<h3>Folders</h3>
+        <%  Folder.all.each do |folder| %>
+        <li>
 
-        <%  Folder.all.each_with_index do |folder, index| %>
-        <% if index == 0 %>
-        <li class="active">
-          <% else %>
-          <li>
-            <% end %>
-            <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%=  folder.name%></a>
+            <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-folder-open"></i><%=  folder.name%></a>
             <ul class="collapse list-unstyled" id="<%= folder.name.gsub(/\s+/, "") %>Submenu">
               <% if folder.customers.empty? %>
                 <li>
