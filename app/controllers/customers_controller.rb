@@ -24,6 +24,7 @@ class CustomersController < ApplicationController
         infoWindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
       }
     end
+    @customer_products = CustomerProduct.where(customer_id: @customer.id)
   end
 
   def new
@@ -58,7 +59,16 @@ class CustomersController < ApplicationController
   respond_to do |format|
     format.js
   end
-end
+  end
+
+  def edit_products
+  @customer = Customer.find(params[:id])
+  @customer_products = CustomerProduct.where(customer_id: @customer.id)
+  @customer_product = CustomerProduct.new
+  respond_to do |format|
+    format.js
+  end
+  end
 
   private
 

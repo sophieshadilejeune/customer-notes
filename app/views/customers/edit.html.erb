@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8">
 <%= simple_form_for [@customer], validate: true do |f| %>
-<%= f.input :name %>
+<%= f.input :contact_name %>
 <%= f.input :address %>
 <%= f.input :contact_number%>
 <%= f.input :photos, as: :file, input_html: { multiple: true } %>

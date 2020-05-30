@@ -11,12 +11,6 @@
       <ul class="list-unstyled components">
 
         <li>
-          <%= link_to new_folder_path do  %>
-          <i class="fas fa-plus"></i>
-          <span>Add a folder</span>
-          <% end %>
-        </li>
-        <li>
           <%= link_to new_customer_path do  %>
            <i class="fas fa-plus"></i>
           <span>Add a customer</span>
@@ -35,7 +29,10 @@
           <% end %>
         </li>
 
-<h3>Folders</h3>
+<h3 style="margin-bottom: 5px;">Folders</h3>
+<div style="margin-left: 10px; margin-bottom: 10px" class="link-navbar" >
+<%= link_to "> Manage my folders", folders_path %>
+</div>
         <%  Folder.all.each do |folder| %>
         <li>
 
@@ -55,7 +52,6 @@
             </ul>
           </li>
           <% end %>
-<%= link_to "Manage my folders", folders_path, style: "margin-left: 10px; margin-bottom: 10px;"  %>
         </ul>
       </nav>
 

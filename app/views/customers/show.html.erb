@@ -42,14 +42,19 @@
 
   <div class="col-6">
     <div class="customer-card-products">
+      <%= link_to edit_products_path, remote: true do %>
+      <i class="far fa-edit fa-lg" id="notes-edit-btn" style="float:right"></i>
+      <% end %>
       <h2>List of Products</h2>
+      <div id="edit-products">
       <ul>
-      <% @customer.customer_products.each do |customer_product| %>
+      <% @customer_products.each do |customer_product| %>
       <li><%= customer_product.quantity %> x
         <%= Product.where(id: customer_product.product_id)[0].name
        %></li>
       <% end %>
       </ul>
+      </div>
     </div>
     <div class="customer-card-notes">
 
@@ -57,10 +62,15 @@
       <%= render 'shared/notes_edit_form' %>
 
       <% else %>
+      <div>
       <%= link_to edit_notes_path, remote: true do %>
-      <i class="far fa-edit fa-lg" id="notes-edit-btn"></i>
+      <i class="far fa-edit fa-lg" id="notes-edit-btn" style="float:right"></i>
       <% end %>
+      <h2>Notes</h2>
+      </div>
+      <div>
       <p><%= @customer.notes %></p>
+      </div>
       <% end %>
     </div>
 

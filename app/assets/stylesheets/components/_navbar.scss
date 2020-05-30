@@ -73,6 +73,7 @@ a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
+    color: $platinum;
 }
 
 #sidebar .sidebar-header {
@@ -135,6 +136,14 @@ ul ul a {
   padding-left: 10px;
   border-top: 1px solid #71db9863;
   padding-top: 20px;
+}
+
+.link-navbar a{
+  color: $platinum;
+  font-size: 0.8em;
+  &:hover {
+    color: $light-green
+  }
 }
 
 @media (max-width: 768px) {
