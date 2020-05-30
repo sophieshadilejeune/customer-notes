@@ -1,60 +1,56 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-5">
-
-    <!-- image gallery start -->
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-
-      <div class="carousel-inner">
-
-
-        <% @customer.photos.each_with_index do |photo, index| %>
-        <% if index == 0 %>
-        <div class="carousel-item active">
-          <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class: "d-block w-100" %>
-        </div>
-        <% end %>
-        <div class="carousel-item">
-          <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill, class: "d-block w-100" %>
-        </div>
-        <% end %>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <!-- image gallery end -->
-
-  </div>
-  <div class="col-5">
+  <div class="col-6">
     <div class="customer-card-show">
+      <%= link_to customer_path(@customer), method: :delete, data: { confirm: "Are you sure?", title: "Confirm Deletion"}, class: 'customer-delete-icon' do %>
+      <i class="fas fa-trash fa-lg"></i>
+            <% end %>
       <%= link_to edit_customer_path(@customer), class: "customer-edit-icon" do %>
       <i class="fas fa-user-edit fa-lg"></i>
       <% end %>
+
+
       <div class="customer-card-details">
-        <h1><%= @customer.name  %></h1>
-        <p>"<%= @customer.address %>"</p>
-        <p>"<%= @customer.contact_number %>"</p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a href="#map"><%= @customer.address %></a>
+        <h1><%= @customer.company_name  %></h1>
+        <p> <%= link_to "Company Website" , "#{@customer.website}"  %></p>
+        <div class="customer-card-contact-details">
+        <p><i class="fas fa-address-book" style="margin-right: 5px"></i>
+        <%= @customer.contact_name %></p>
+        <p>
+          <i class="fas fa-envelope" style="margin-right: 5px"></i><%= @customer.email %></p>
+        <p>
+          <i class="fas fa-phone-alt" style="margin-right: 5px"></i><%= @customer.contact_number %></p>
+                  <p>
+          <i class="fas fa-map-marker-alt" style="margin-right: 5px"></i>
+        <%= @customer.address %>
+                  </p>
+        </div>
+
+
+
       </div>
+      <% if !@customer.address.nil? %>
+          <div id="map"
+    style="width: 100%; height: 300px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <% end %>
+
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-10">
+
+  <div class="col-6">
+    <div class="customer-card-products">
+      <h2>List of Products</h2>
+      <ul>
+      <% @customer.customer_products.each do |customer_product| %>
+      <li><%= customer_product.quantity %> x
+        <%= Product.where(id: customer_product.product_id)[0].name
+       %></li>
+      <% end %>
+      </ul>
+    </div>
     <div class="customer-card-notes">
 
       <% if @customer.notes.body.nil? %>
@@ -67,17 +63,12 @@
       <p><%= @customer.notes %></p>
       <% end %>
     </div>
+
   </div>
-</div>
-<div class="row">
-  <div class="col-10">
-    <div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
-</div>
+
+
+
 </div>
 
 

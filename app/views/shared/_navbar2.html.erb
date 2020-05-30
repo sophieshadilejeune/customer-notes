@@ -22,6 +22,12 @@
           <span>Add a customer</span>
           <% end %>
         </li>
+                <li>
+          <%= link_to products_path do  %>
+          <i class="fas fa-cube"></i>
+          <span>Products</span>
+          <% end %>
+        </li>
         <li>
           <%= link_to map_path do  %>
           <i class="fa fa-globe"></i>
@@ -42,14 +48,14 @@
                 <% else %>
               <% folder.customers.each do |customer| %>
               <li>
-                <%= link_to customer.name, customer_path(customer)  %>
+                <%= link_to customer.company_name, customer_path(customer)  %>
               </li>
               <% end %>
               <% end %>
             </ul>
           </li>
           <% end %>
-
+<%= link_to "Manage my folders", folders_path, style: "margin-left: 10px; margin-bottom: 10px;"  %>
         </ul>
       </nav>
 

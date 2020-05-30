@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top: 20px;">
+
+        <div class="col-sm-8 col-md-6 col-xl-6">
+
+        <div class="product-card">
+
+        <div>
+        <%= simple_form_for @product, validate: true, remote: true do |f| %>
+<%= f.input :name %>
+<%= f.submit "Add this Product", class: "btn btn-primary" %>
+<% end %>
+        </div>
+
+      </div>
+    </div>
+
+        <div class="col-sm-8 col-md-6 col-xl-6">
+
+          <% @products.each do |product| %>
+
+        <div class="d-flex product-card ">
+
+        <div>
+        <%= product.name %>
+        </div>
+
+
+<div class="product-card-options">
+
+            <%= link_to edit_product_path(product), class: "product-options" do %>
+        <i class="far fa-edit fa-xs"></i>
+        <% end %>
+
+          <%= link_to product_path(product), method: :delete, data: { confirm: "Are you sure?", title: "Confirm Deletion"}, class: 'product-options' do %>
+          <i class="far fa-trash-alt fa-xs"></i>
+          <% end %>
+
+
+
+
+        </div>
+
+        </div>
+        <% end %>
+      </div>
+
+      </div>
+    </div>
+

@@ -1,16 +1,16 @@
 class FoldersController < ApplicationController
 
+  before_action :set_folder, only: %i[edit update destroy]
+
   def index
-  end
-  def show
-  end
-  def new
+    @folders = Folder.all
     @folder = Folder.new
   end
+
   def create
     @folder = Folder.new(params_folder)
     if @folder.save
-      redirect_to customers_path
+      redirect_to folders_path
     else
       render :new
     end
@@ -18,14 +18,24 @@ class FoldersController < ApplicationController
 
   def edit
   end
+
   def update
+    @folder.update(params_folder)
+    redirect_to folders_path
   end
+
   def destroy
+    @folder.destroy
+    redirect_to folders_path
   end
 
-private
+    private
 
-def params_folder
-  params.require(:folder).permit(:name)
+  def set_folder
+    @folder = Folder.find(params[:id])
+  end
+
+  def params_folder
+    params.require(:folder).permit(:name)
   end
 end

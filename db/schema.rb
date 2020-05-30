@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_052252) do
+ActiveRecord::Schema.define(version: 2020_05_30_083120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,17 @@ ActiveRecord::Schema.define(version: 2020_05_28_052252) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "customer_products", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_customer_products_on_customer_id"
+    t.index ["product_id"], name: "index_customer_products_on_product_id"
+  end
+
   create_table "customers", force: :cascade do |t|
-    t.string "name"
     t.string "contact_number"
     t.string "address"
     t.string "notes"
@@ -57,11 +66,21 @@ ActiveRecord::Schema.define(version: 2020_05_28_052252) do
     t.bigint "folder_id"
     t.float "latitude"
     t.float "longitude"
+    t.string "contact_name"
+    t.string "website"
+    t.string "company_name"
+    t.string "email"
     t.index ["folder_id"], name: "index_customers_on_folder_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "folders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -80,5 +99,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_052252) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "customer_products", "customers"
+  add_foreign_key "customer_products", "products"
   add_foreign_key "customers", "users"
 end

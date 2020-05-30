@@ -1,0 +1,56 @@
+// Manage Categories page
+.product-card {
+  background-color: $light-green;
+  color: $black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.product-card-options a {
+  color: $dark-green;
+  justify-content: center;
+  // height: 20px;
+  // width: 30px;
+  opacity: 0.8;
+  padding-left: 15px;
+  font-size: 1.3rem;
+  &:hover {
+    color: $light-green;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.card-options {
+  color: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  opacity: 0.8;
+  &:hover {
+    color: $dark-green;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+.option-remove-link {
+  right: 8px;
+  top: 8px;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  border: 1px solid $black;
+  &:hover {
+  border: 1px solid $black;
+  }
+}
+
+.option-edit-link {
+  left: 8px;
+  top: 8px;
+}
