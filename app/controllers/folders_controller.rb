@@ -8,6 +8,10 @@ class FoldersController < ApplicationController
     @folder = Folder.new
   end
 
+  def new
+  @folder = Folder.new
+  end
+
   def create
     @folder = Folder.new(params_folder)
     @folder.user = current_user
