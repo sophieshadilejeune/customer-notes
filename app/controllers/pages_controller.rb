@@ -11,7 +11,9 @@ class PagesController < ApplicationController
   end
 
   def map
-    @customers_geo = Customer.geocoded
+    @user = current_user
+    @customers = @user.customers
+    @customers_geo = @customers.geocoded
     @markers = @customers_geo.map do |customer|
       {
         lat: customer.latitude,
@@ -23,11 +25,10 @@ class PagesController < ApplicationController
 
   def search
     @user = current_user
-    @customers = @user.customers
     @products = @user.products
     @customer_products = @user.customer_products
     if params[:query_customer].present?
-      @results = @customers.search_for_customer(params[:query_customer])
+      @results = @user.customers.search_for_customer(params[:query_customer])
       if !@results.empty?
         @customers = @results
       else
@@ -44,7 +45,7 @@ class PagesController < ApplicationController
       if !@customer_products.empty?
         @customers = []
         @customer_products.each do |product|
-          @customers << @customers.where(id: product.customer_id)
+          @customers << @user.customers.where(id: product.customer_id)
         end
         @customers.flatten!
       else
