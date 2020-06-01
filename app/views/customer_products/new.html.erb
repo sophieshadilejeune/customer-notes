@@ -4,7 +4,7 @@
 
 <%= simple_form_for [ @customer, @customer_product ], validate: true do |f| %>
 <%= f.input :quantity %>
-<%= f.association :products %>
+<%= f.association :product, collection: current_user.products %>
 
 <%= f.submit "Add this product", class: "btn btn-primary" %>
 <% end %>

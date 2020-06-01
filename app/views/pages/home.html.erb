@@ -1,17 +1,37 @@
 <div class="container-fluid">
 <div class="row">
-  <div class="col-10 offset-1">
-<h2>Pro Sidebar</h2>
-      <hr>
+  <div class="col-10">
+<% if user_signed_in? %>
 
-        <h3>fffff,l;dddddmfkdlsfmkskmfslkfmsf
-        lkdmfskl
-      fmdfklfmdskl
-    fmflkmfkdlfmdf
+        <%  if @user.folders.count == 0 || @user.customers.count == 0 || @user.customer_products.count == 0 %>
+        <h2>Welcome!</h2>
+        <hr>
+        <p>Start your journey by adding a new folder to store your customers</p>
+        <%= link_to folders_path, class: "btn btn-primary btn-light-green" do  %>
+        <i class="fas fa-plus"></i>
+        <span>Add a new folder</span>
+        <% end %>
+        <hr>
+        <p>Once your first folder has been created, you can now add some customers!</p>
 
-  lkfsfflmkmfkfmf
-lsfmdlmkfmflfmffk
-fopwcpjkefwp</h3>
+          <%= link_to new_customer_path, class: "btn btn-primary btn-light-green" do  %>
+           <i class="fas fa-plus"></i>
+          <span>Add a customer</span>
+          <% end %>
+          <hr>
+        <p>To add some products to each customers, start by creating a catalogue of products by clicking <%= link_to "here", products_path  %></p>
+<% end %>
+<% else %>
+<div class="home-content-visitor">
+  <h1>Welcome to Customer Notes</h1>
+<hr>
+<p>Easily take notes during customer visits</p>
+<p>Create a catalogue of products to follow your customers </p>
+</div>
+
+
+<% end %>
+
   </div>
 
 </div>

@@ -1,0 +1,60 @@
+<h1>Search Tool</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-5">
+
+      <div>
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query_customer,
+        params[:query_customer],
+        class: "form-control",
+          placeholder: "Find a customer by Company name"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-light-green mt-1 mb-4" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-5">
+        <div>
+        <%= form_tag search_path, method: :get do %>
+
+        <select class="js-example-basic-single form-control" name="query_product" id="query_product">
+          <% @products.each do |p| %>
+          <option></option>
+          <option value=<%= p.name %> ><%= p.name %></option>
+          <% end %>
+        </select>
+          <%= submit_tag "Search", class: "btn btn-primary btn-light-green mt-1 mb-4" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-10">
+<% if (((params[:query_customer].present?)  && !@results.empty?)  || ((params[:query_product].present?) && !@customer_products.empty?)) || ((!params[:query_customer].present?) && (!params[:query_product].present?))   %>
+<% @customers.each do |customer|  %>
+          <div class="index-customer-card">
+              <h3><%= link_to customer.company_name, customer_path(customer)  %></h3>
+              <p><%= customer.contact_name %></p>
+              <p><%= customer.address %></p>
+            <div class="index-customer-products">
+              <ul>
+                <% customer.customer_products.each do |product| %>
+                <li><p><%= product.quantity %> x
+                  <%= Product.where(id: product.product_id)[0].name
+                  %></p> </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+                <% end %>
+                <% else %>
+      <%= @message %>
+                <% end %>
+
+
+              </div>
+            </div>
+          </div>

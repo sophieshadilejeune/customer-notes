@@ -2,12 +2,14 @@
   <div class="row">
     <div class="col-8">
 <%= simple_form_for [@customer], validate: true do |f| %>
-<%= f.input :contact_name %>
+<%= f.input :company_name %>
+<%= f.input :website %>
 <%= f.input :address %>
+<%= f.input :contact_name %>
 <%= f.input :contact_number%>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
+<%= f.input :email %>
 <%= f.association :folder %>
-<%= f.submit "Save changes", class: "btn btn-primary" %>
+<%= f.submit "Add this customer", class: "btn btn-primary" %>
 <% end %>
 
     </div>

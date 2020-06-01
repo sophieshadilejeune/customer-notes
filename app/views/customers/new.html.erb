@@ -10,7 +10,6 @@
 <%= f.input :contact_number%>
 <%= f.input :email %>
 <%= f.association :folder %>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
 <%= f.submit "Add this customer", class: "btn btn-primary" %>
 <% end %>
 

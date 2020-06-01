@@ -1,4 +1,6 @@
-<p><%= customer.company_name %></p>
+<div style="text-align: left">
+<h3><%= link_to customer.company_name, customer_path(customer)   %></h3>
 <p><%= customer.address %></p>
 <p><%= customer.contact_name %></p>
 <p><%= customer.contact_number %></p>
+</div>

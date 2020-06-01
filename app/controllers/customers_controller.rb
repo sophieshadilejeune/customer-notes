@@ -1,9 +1,10 @@
 class CustomersController < ApplicationController
 
   def index
-    @customers = Customer.all
-    @customers_geo = Customer.geocoded
-
+    @user = current_user
+    @folders = @user.folders
+    @customers = @user.customers
+    @customers_geo = @customers.geocoded
     @markers = @customers_geo.map do |customer|
       {
         lat: customer.latitude,
@@ -14,6 +15,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @user = current_user
     @customer = Customer.find(params[:id])
     @customer_geo = []
     @customer_geo << @customer
@@ -24,7 +26,7 @@ class CustomersController < ApplicationController
         infoWindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
       }
     end
-    @customer_products = CustomerProduct.where(customer_id: @customer.id)
+    @customer_products = @user.customer_products
   end
 
   def new
@@ -63,7 +65,7 @@ class CustomersController < ApplicationController
 
   def edit_products
   @customer = Customer.find(params[:id])
-  @customer_products = CustomerProduct.where(customer_id: @customer.id)
+  @customer_products = @customer.customer_products
   @customer_product = CustomerProduct.new
   respond_to do |format|
     format.js

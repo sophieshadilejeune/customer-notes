@@ -40,10 +40,10 @@ puts "2 users created"
 
 puts "Creating some products"
 
-product1 = Product.new(name: "RT8 270cc")
+product1 = Product.new(name: "RT8 270cc", user: user1)
 product1.save
 
-product2 = Product.new(name: "2Drive")
+product2 = Product.new(name: "2Drive", user: user1)
 product2.save
 
 puts "Created 2 products"
@@ -53,12 +53,14 @@ puts "Created 2 products"
 puts "Creating some folders"
 
 folder1 = Folder.new(
-  name: "Current Customers")
+  name: "Current Customers",
+  user: user1)
 
 folder1.save
 
 folder2 = Folder.new(
-  name: "Competitors")
+  name: "Competitors",
+  user: user1)
 
 folder2.save
 

@@ -3,12 +3,14 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: %i[edit update destroy]
 
   def index
-    @folders = Folder.all
+    @user = current_user
+    @folders = @user.folders
     @folder = Folder.new
   end
 
   def create
     @folder = Folder.new(params_folder)
+    @folder.user = current_user
     if @folder.save
       redirect_to folders_path
     else
@@ -36,6 +38,6 @@ class FoldersController < ApplicationController
   end
 
   def params_folder
-    params.require(:folder).permit(:name)
+    params.require(:folder).permit(:name, :user_id)
   end
 end

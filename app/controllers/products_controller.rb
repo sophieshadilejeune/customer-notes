@@ -2,12 +2,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit update destroy]
 
   def index
-    @products = Product.all
+    @user = current_user
+    @products = @user.products
     @product = Product.new
   end
 
   def create
     @product = Product.new(params_product)
+    @product.user = current_user
     if @product.save
       redirect_to products_path
     else
@@ -35,7 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def params_product
-    params.require(:product).permit(:name)
+    params.require(:product).permit(:name, :user_id)
   end
 end
 

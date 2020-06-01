@@ -34,9 +34,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { navbarToggle } from './navbar'
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initSelect2 } from '../plugins/init_select2'
 
 document.addEventListener('turbolinks:load', () => {
 navbarToggle();
+initAutocomplete();
+initSelect2();
 initMapbox();
 });
 

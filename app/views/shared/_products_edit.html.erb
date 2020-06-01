@@ -28,7 +28,7 @@
     boolean: :inline_boolean
   } do |f| %>
 <%= f.input :quantity, placeholder: 'Qty', input_html: { class: "mb-2 mr-sm-2", style: "width: 80px" } %>
-<%= f.association :product, prompt: 'Product', input_html: { class: "mb-2 mr-sm-2", style: "width: 150px"  } %>
+<%= f.association :product, collection: current_user.products, prompt: 'Product', input_html: { class: "mb-2 mr-sm-2", style: "width: 150px"  } %>
 <%= f.submit "Add this product", class: "btn btn-primary btn-light-green", style: "margin-bottom: 7px" %>
 <% end %>
 </div>

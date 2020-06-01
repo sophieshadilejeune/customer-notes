@@ -1,25 +1,38 @@
     <!-- Sidebar -->
     <nav id="sidebar">
+    <% if user_signed_in? %>
+
       <div class="sidebar-header">
-        <% if user_signed_in? %>
-        <strong><%= current_user.email %></strong>
-        <% else %>
-        <strong>Stranger</strong>
-        <% end %>
+        <ul class="list-unstyled components" id="profile-menu">
+          <li>
+            <a href="#ProfileSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle profile-settings"><%= current_user.email %></a>
+            <ul class="collapse list-unstyled" id="ProfileSubmenu">
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              <li><%= link_to "Edit User Profile", edit_user_registration_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        </ul>
+
       </div>
 
       <ul class="list-unstyled components">
 
         <li>
-          <%= link_to new_customer_path do  %>
-           <i class="fas fa-plus"></i>
-          <span>Add a customer</span>
+          <%= link_to customers_path do  %>
+          <i class="fas fa-address-card"></i>
+          <span>List of customers</span>
           <% end %>
         </li>
-                <li>
+        <li>
+          <%= link_to search_path do  %>
+          <i class="fas fa-search"></i>
+          <span>Search</span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to products_path do  %>
           <i class="fas fa-cube"></i>
-          <span>Products</span>
+          <span>Catalogue of Products</span>
           <% end %>
         </li>
         <li>
@@ -29,29 +42,44 @@
           <% end %>
         </li>
 
-<h3 style="margin-bottom: 5px;">Folders</h3>
-<div style="margin-left: 10px; margin-bottom: 10px" class="link-navbar" >
-<%= link_to "> Manage my folders", folders_path %>
-</div>
-        <%  Folder.all.each do |folder| %>
+        <h3 style="margin-bottom: 5px;">Folders</h3>
+        <div style="margin-left: 10px; margin-bottom: 10px" class="link-navbar" >
+          <%= link_to "> Manage my folders", folders_path %>
+        </div>
+        <%  current_user.folders.each do |folder| %>
         <li>
 
-            <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-folder-open"></i><%=  folder.name%></a>
-            <ul class="collapse list-unstyled" id="<%= folder.name.gsub(/\s+/, "") %>Submenu">
-              <% if folder.customers.empty? %>
-                <li>
-                  <%= link_to "Add a customer", new_customer_path  %>
-                </li>
-                <% else %>
-              <% folder.customers.each do |customer| %>
-              <li>
-                <%= link_to customer.company_name, customer_path(customer)  %>
-              </li>
-              <% end %>
-              <% end %>
-            </ul>
-          </li>
-          <% end %>
-        </ul>
-      </nav>
+          <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-folder-open"></i><%=  folder.name%></a>
+          <ul class="collapse list-unstyled" id="<%= folder.name.gsub(/\s+/, "") %>Submenu">
+            <% if folder.customers.empty? %>
+            <li>
+              <%= link_to "Add a customer", new_customer_path  %>
+            </li>
+            <% else %>
+            <% folder.customers.each do |customer| %>
+            <li>
+              <%= link_to customer.company_name, customer_path(customer)  %>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>
+        </li>
+        <% end %>
+
+
+      </ul>
+
+        <% else %>
+              <div class="sidebar-header">
+
+        <h2>Hi Stranger!</h2>
+      </div>
+
+      <ul class="list-unstyled components">
+                 <li><%= link_to "Login", new_user_session_path, class: "nav-link btn-ghost", style: "margin-right: 10px;" %></li>
+
+          <li><%= link_to "Sign Up",  new_user_registration_path, class: "nav-link btn-ghost", style: "margin-right: 0px;" %></li>
+      </ul>
+        <% end %>
+    </nav>
 

@@ -14,6 +14,8 @@
     color: $platinum;
     transition: all 0.3s;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+        overflow-y: auto !important;
 }
 
 #sidebarCollapse {
@@ -81,9 +83,37 @@ a, a:hover, a:focus {
     background-image: asset-url('leaves.webp');
     background-position: center;
     background-size: cover;
-    height: 150px;
+    height: 180px;
     text-align: center;
-    padding-top: 75px
+    padding-top: 40px;
+    ul.components {
+      border: none;
+      color: red;
+    }
+    a {
+        color: $platinum;
+        background-color: transparent;
+          &:hover{
+    background-color: #00000073;
+            color: $platinum;
+  }
+}
+  .dropdown-item {
+    background-color: #00000073;
+    padding: 5px;
+      }
+}
+
+
+#profile-menu ul li a  {
+  color: $platinum !important;
+  border: none !important;
+  &:hover{
+  // border: 1px solid $platinum;
+  text-decoration: underline ;
+  background-color: transparent !important;
+  color: $platinum !important;
+  }
 }
 
 #sidebar ul.components {
@@ -145,6 +175,8 @@ ul ul a {
     color: $light-green
   }
 }
+
+
 
 @media (max-width: 768px) {
     #sidebar {
