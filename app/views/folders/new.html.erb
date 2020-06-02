@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
+      <div class="forms-container">
 
 <%= simple_form_for @folder, validate: true do |f| %>
 <%= f.input :name %>
-<%= f.submit "Add this folder", class: "btn btn-primary" %>
+<%= f.submit "Add this folder", class: "btn btn-dark-green" %>
 <% end %>
-
+</div>
     </div>
   </div>
 </div>

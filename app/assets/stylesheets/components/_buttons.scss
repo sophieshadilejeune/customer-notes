@@ -1,9 +1,16 @@
 .btn-dark-green {
   background-color: $dark-green;
   border: none;
+  color: $platinum;
   &:hover{
-background-color: $platinum;
-color: $dark-green;
+    background-color: $platinum;
+    color: $dark-green;
+    border:none
+  }
+  &:focus{
+    background-color: $platinum;
+    color: $dark-green;
+    border:none;
   }
 }
 
@@ -14,6 +21,12 @@ color: $dark-green;
   &:hover{
 background-color: $platinum;
 color: $dark-green;
+border:none;
+  }
+  &:focus{
+  background-color: $platinum;
+  color: $dark-green;
+  border:none;
   }
 }
 
@@ -24,5 +37,11 @@ color: $dark-green;
   &:hover{
 background-color: $light-green;
 color: $dark-green;
+border:none
+  }
+    &:focus{
+background-color: $light-green;
+color: $dark-green;
+  border:none;
   }
 }

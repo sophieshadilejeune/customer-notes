@@ -22,14 +22,16 @@ puts "Creating users"
 
 user1 = User.new(
   email: "user1@user.com",
-  password: "password"
+  password: "password",
+  name: "User1"
   )
 
 user1.save
 
 user2 = User.new(
   email: "user2@user.com",
-  password: "password"
+  password: "password",
+  name: "User2"
   )
 
 user2.save

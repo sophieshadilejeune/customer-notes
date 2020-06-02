@@ -1,12 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
+      <div class="forms-container">
 
 <%= simple_form_for @product, validate: true do |f| %>
 <%= f.input :name %>
-<%= f.submit "Add this Product", class: "btn btn-primary" %>
+<%= f.submit "Add this Product", class: "btn btn-dark-green" %>
 <% end %>
-
+</div>
     </div>
   </div>
 </div>

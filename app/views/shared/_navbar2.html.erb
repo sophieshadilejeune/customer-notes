@@ -5,7 +5,7 @@
       <div class="sidebar-header">
         <ul class="list-unstyled components" id="profile-menu">
           <li>
-            <a href="#ProfileSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle profile-settings"><%= current_user.email %></a>
+            <a href="#ProfileSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle profile-settings"><%= current_user.name %></a>
             <ul class="collapse list-unstyled" id="ProfileSubmenu">
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
               <li><%= link_to "Edit User Profile", edit_user_registration_path, class: "dropdown-item" %></li>

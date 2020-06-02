@@ -8,14 +8,13 @@
     position: fixed !important;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     z-index: 000;
       background-image: linear-gradient(to bottom right, $dark-green, #1f2321d4);
     color: $platinum;
     transition: all 0.3s;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-        overflow-y: auto !important;
+    overflow-y: scroll !important;
 }
 
 #sidebarCollapse {

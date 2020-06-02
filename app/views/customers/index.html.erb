@@ -6,14 +6,14 @@
         <h2>Welcome!</h2>
         <hr>
         <p>Start your journey by adding a new folder to store your customers</p>
-        <%= link_to folders_path, class: "btn btn-primary btn-light-green" do  %>
+        <%= link_to folders_path, class: "btn btn-light-green" do  %>
         <i class="fas fa-plus"></i>
         <span>Add a new folder</span>
         <% end %>
 
 <% else %>
   <div class="col-6">
-          <%= link_to new_customer_path, class: "btn btn-primary btn-light-green", style: "margin: 20px 0px" do  %>
+          <%= link_to new_customer_path, class: "btn btn-light-green", style: "margin: 20px 0px" do  %>
            <i class="fas fa-plus" style="margin-right: 5px"></i>
           <span>Add a customer</span>
           <% end %>
