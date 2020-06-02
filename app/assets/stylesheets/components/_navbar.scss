@@ -3,19 +3,26 @@
     width: 100%;
 }
 
+
 #sidebar {
     width: 250px;
     position: fixed !important;
     top: 0;
     left: 0;
-    height: 100%;
-    z-index: 000;
-      background-image: linear-gradient(to bottom right, $dark-green, #1f2321d4);
+    height: auto;
+    max-height: 150%;
+    z-index: 1;
     color: $platinum;
     transition: all 0.3s;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: $dark-green;
+
+    // background-image: linear-gradient(to bottom right, $dark-green, #1f2321d4);
+
+    // overflow-x: hidden;
     overflow-y: scroll !important;
 }
+
 
 #sidebarCollapse {
   background-color: $dark-green;

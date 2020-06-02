@@ -1,6 +1,5 @@
     <!-- Sidebar -->
     <nav id="sidebar">
-
     <% if user_signed_in? %>
 
       <div class="sidebar-header">
@@ -48,39 +47,30 @@
           <%= link_to "> Manage my folders", folders_path %>
         </div>
         <%  current_user.folders.each do |folder| %>
-        <li>
 
-          <a href="#<%= folder.name.gsub(/\s+/, "") %>Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-folder-open"></i><%=  folder.name%></a>
-          <ul class="collapse list-unstyled" id="<%= folder.name.gsub(/\s+/, "") %>Submenu">
-            <% if folder.customers.empty? %>
-            <li>
-              <%= link_to "Add a customer", new_customer_path  %>
-            </li>
-            <% else %>
-            <% folder.customers.each do |customer| %>
-            <li>
+<button class="dropdown-btn"><%= folder.name.gsub(/\s+/, "") %>
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-container">
+        <% folder.customers.each do |customer| %>
               <%= link_to customer.company_name, customer_path(customer)  %>
-            </li>
             <% end %>
-            <% end %>
-          </ul>
-        </li>
-        <% end %>
+          </div>
+
+                <% end %>
+
+
+<button class="dropdown-btn">Dropdown
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
 
 
       </ul>
-
-        <% else %>
-              <div class="sidebar-header">
-
-        <h2>Hi Stranger!</h2>
-      </div>
-
-      <ul class="list-unstyled components">
-                 <li><%= link_to "Login", new_user_session_path, class: "nav-link btn-ghost", style: "margin-right: 10px;" %></li>
-
-          <li><%= link_to "Sign Up",  new_user_registration_path, class: "nav-link btn-ghost", style: "margin-right: 0px;" %></li>
-      </ul>
-        <% end %>
-
+      <% end %>
     </nav>
+

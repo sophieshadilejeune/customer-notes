@@ -32,12 +32,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { navbarToggle } from './navbar'
+import { navbarToggle } from './navbar';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutocomplete } from '../plugins/init_autocomplete'
-import { initSelect2 } from '../plugins/init_select2'
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initSelect2 } from '../plugins/init_select2';
+import { dropdownNavbar } from './dropdown_navbar';
 
 document.addEventListener('turbolinks:load', () => {
+// dropdownNavbar();
 navbarToggle();
 initAutocomplete();
 initSelect2();
