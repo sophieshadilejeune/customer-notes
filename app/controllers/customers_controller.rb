@@ -30,6 +30,7 @@ class CustomersController < ApplicationController
   end
 
   def new
+    @user = current_user
     @customer = Customer.new
   end
 
@@ -44,6 +45,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @customer = Customer.find(params[:id])
   end
 

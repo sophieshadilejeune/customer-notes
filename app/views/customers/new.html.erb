@@ -10,7 +10,7 @@
 <%= f.input :contact_name %>
 <%= f.input :contact_number%>
 <%= f.input :email %>
-<%= f.association :folder %>
+<%= f.association :folder, collection: @user.folders %>
 <%= f.submit "Add this customer", class: "btn btn-dark-green" %>
 <% end %>
 </div>
