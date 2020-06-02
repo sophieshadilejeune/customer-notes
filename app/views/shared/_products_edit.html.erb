@@ -13,7 +13,7 @@
   } do |f| %>
 <%= f.input :quantity, input_html: { class: "mb-2 mr-sm-2", style: "width: 80px" } %>
 <%= f.association :product, input_html: { class: "mb-2 mr-sm-2", style: "width: 150px"  } %>
-<%= f.submit "Save", class: "btn btn-primary btn-light-green", style: "margin-bottom: 7px" %>
+<%= f.submit "Save", class: "btn btn-light-green", style: "margin-bottom: 7px" %>
 <%= link_to "Delete",  customer_customer_product_path(@customer, customer_product), method: :delete, data: { confirm: "Are you sure?", title: "Confirm Deletion"}, class: "btn btn-primary btn-light-green", style: "margin-left: 5px; margin-bottom: 7px" %>
 <% end %>
        </li>
@@ -29,6 +29,6 @@
   } do |f| %>
 <%= f.input :quantity, placeholder: 'Qty', input_html: { class: "mb-2 mr-sm-2", style: "width: 80px" } %>
 <%= f.association :product, collection: current_user.products, prompt: 'Product', input_html: { class: "mb-2 mr-sm-2", style: "width: 150px"  } %>
-<%= f.submit "Add this product", class: "btn btn-primary btn-light-green", style: "margin-bottom: 7px" %>
+<%= f.submit "Add this product", class: "btn btn-light-green", style: "margin-bottom: 7px" %>
 <% end %>
 </div>
