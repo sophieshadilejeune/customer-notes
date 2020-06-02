@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   belongs_to :folder
   has_many :customer_products, dependent: :destroy
   has_many :products, through: :customer_products
+  validates :company_name, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
