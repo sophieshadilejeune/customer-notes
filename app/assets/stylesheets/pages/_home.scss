@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+.container-fluid.home{
+  margin: 0px;
+  padding: 0px;
+  text-align: -webkit-center;
+}
+
+.home-content-visitor{
+  // display: flex;
+  width: 100vw;
+  text-align: center;
+}
+
+
+.banner {
+  background-size: cover;
+  height: 80vh;
+  width: 90vw;
+  margin-bottom: 20px;
+}
+
+.banner-text {
+  color: $platinum;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  position: relative;
+  top: 70%;
+  right: 0%;
+  padding: 20px;
+  text-align: right;
+  width: 50%;
+  float: right
+}

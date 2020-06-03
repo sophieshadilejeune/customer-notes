@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid home">
       <% if user_signed_in? %>
   <div class="row">
     <div class="col-10">
@@ -32,69 +32,36 @@
 <!--         <p>Easily take notes during customer visits</p>
         <p>Create a catalogue of products to follow your customers </p> -->
       </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
 
-        <div class="carousel-inner">
-
-          <div class="carousel-item active">
             <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url( <%= asset_path('customers.png') %>)">
         <div class="banner-text">
               <h1>Track your customers</h1>
             </div>
             </div>
-          </div>
 
-                    <div class="carousel-item">
             <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url( <%= asset_path('customer.png') %>)">
-        <div class="banner-text">
+        <div class="banner-text" style="float: left; text-align: left;">
               <h1>Quickly visualize all information related to your customers</h1>
             </div>
             </div>
-          </div>
 
-          <div class="carousel-item">
             <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url( <%= asset_path('search.png') %>)">
         <div class="banner-text">
               <h1>Easily search through your list of customers</h1>
             </div>
             </div>
-          </div>
 
 
 
-                    <div class="carousel-item">
             <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url( <%= asset_path('customer_edit.png') %>)">
-        <div class="banner-text">
+        <div class="banner-text" style="float: left; text-align: left;">
               <h1>Quickly add customer notes and products</h1>
             </div>
             </div>
-          </div>
-
-
-
-
-
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
       <% end %>
 
 
