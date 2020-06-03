@@ -13,18 +13,31 @@
       <div class="customer-card-details">
         <h1><%= @customer.company_name  %></h1>
         <p> <%= link_to "Company Website" , "#{@customer.website}"  %></p>
+        <p><i class="fas fa-map-marker-alt" style="margin-right: 5px"></i>
+        <%= @customer.address %></p>
+
+        <%= link_to add_contact_path, remote: true, class: "btn btn-dark-green", style: "margin: 10px 0px" do  %>
+           <i class="fas fa-plus" style="margin-right: 5px; color: white"></i>
+          <span>Add a contact</span>
+          <% end %>
+
+        <div class="add-contact">
+        </div>
+
+
+
+        <%  @customer.contacts.each do |contact|  %>
         <div class="customer-card-contact-details">
         <p><i class="fas fa-address-book" style="margin-right: 5px"></i>
-        <%= @customer.contact_name %></p>
+        <%= contact.name %></p>
         <p>
-          <i class="fas fa-envelope" style="margin-right: 5px"></i><%= @customer.email %></p>
+          <i class="fas fa-envelope" style="margin-right: 5px"></i><%= contact.email %></p>
         <p>
-          <i class="fas fa-phone-alt" style="margin-right: 5px"></i><%= @customer.contact_number %></p>
-                  <p>
-          <i class="fas fa-map-marker-alt" style="margin-right: 5px"></i>
-        <%= @customer.address %>
-                  </p>
+          <i class="fas fa-phone-alt" style="margin-right: 5px"></i><%= contact.phone_number %></p>
+
+
         </div>
+        <% end %>
 
 
 

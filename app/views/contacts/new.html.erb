@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+
+<%= simple_form_for [ @customer, @contact ], validate: true do |f| %>
+<%= f.input :name %>
+<%= f.input :phone_number %>
+<%= f.input :email %>
+
+<br>
+<%= f.submit "Save this contact", class: "btn btn-light-green" %>
+<% end %>
+
+
+</div>
+</div>
+</div>

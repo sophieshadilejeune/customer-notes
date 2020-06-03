@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   belongs_to :folder
   has_many :customer_products, dependent: :destroy
   has_many :products, through: :customer_products
+  has_many :contacts
   validates :company_name, presence: true
   validates :folder_id, presence: true
   geocoded_by :address

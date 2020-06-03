@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   resources :folders
   resources :customers do
     resources :customer_products
+    resources :contacts
   end
   get 'customers/:id/editnotes', to: 'customers#edit_notes', as: 'edit_notes'
   get 'customers/:id/editproducts', to: 'customers#edit_products', as: 'edit_products'
+  get 'customers/:id/addcontact', to: 'customers#add_contact', as: 'add_contact'
+
   get 'map', to: 'pages#map', as: 'map'
   get 'search', to: 'pages#search', as: 'search'
   resources :products, except: [:show]

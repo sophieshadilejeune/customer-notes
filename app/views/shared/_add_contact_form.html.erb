@@ -1,0 +1,9 @@
+<div class="add-contact-form">
+
+<%= simple_form_for [@customer , @contact], validate: true, remote: true do |f| %>
+<%= f.input :name %>
+<%= f.input :phone_number %>
+<%= f.input :email %>
+<%= f.submit "Save this contact", class: "btn btn-dark-green" %>
+<% end %>
+ </div>

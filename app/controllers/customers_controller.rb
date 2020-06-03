@@ -80,6 +80,15 @@ class CustomersController < ApplicationController
   end
   end
 
+  def add_contact
+  @customer = Customer.find(params[:id])
+  @contacts = @customer.contacts
+  @contact = Contact.new
+  respond_to do |format|
+    format.js
+  end
+  end
+
   private
 
   def params_customer
