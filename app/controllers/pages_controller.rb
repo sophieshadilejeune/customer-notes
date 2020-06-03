@@ -14,7 +14,8 @@ class PagesController < ApplicationController
     @user = current_user
     @customers = @user.customers
     @customers_geo = @customers.geocoded
-    @markers = @customers_geo.map do |customer|
+    @customers_for_geo = @customers_geo.where.not(latitude: nil, longitude: nil)
+    @markers = @customers_for_geo.map do |customer|
       {
         lat: customer.latitude,
         lng: customer.longitude,

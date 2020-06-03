@@ -41,9 +41,9 @@ import { dropdownNavbar } from './dropdown_navbar';
 document.addEventListener('turbolinks:load', () => {
 // dropdownNavbar();
 navbarToggle();
+initMapbox();
 initAutocomplete();
 initSelect2();
-initMapbox();
 });
 
 

@@ -1,12 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-10">
+      <% if @customers_geo.empty? %>
+      <p>Add addresses to your customers to display a map</p>
+      <% else %>
 <div class="row">
       <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
      </div>
+     <% end %>
     </div>
     </div>
   </div>

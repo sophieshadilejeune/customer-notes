@@ -5,7 +5,8 @@ class CustomersController < ApplicationController
     @folders = @user.folders
     @customers = @user.customers
     @customers_geo = @customers.geocoded
-    @markers = @customers_geo.map do |customer|
+    @customers_for_geo = @customers_geo.where.not(latitude: nil, longitude: nil)
+    @markers = @customers_for_geo.map do |customer|
       {
         lat: customer.latitude,
         lng: customer.longitude,
@@ -17,6 +18,7 @@ class CustomersController < ApplicationController
   def show
     @user = current_user
     @customer = Customer.find(params[:id])
+    if !@customer.latitude.nil? && !@customer.longitude.nil?
     @customer_geo = []
     @customer_geo << @customer
     @markers = @customer_geo.map do |customer|
@@ -26,7 +28,8 @@ class CustomersController < ApplicationController
         infoWindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
       }
     end
-    @customer_products = @user.customer_products
+  end
+    @customer_products = @customer.customer_products
   end
 
   def new
