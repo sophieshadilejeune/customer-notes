@@ -10,16 +10,11 @@
   background-image: url(asset_path("leaves"));
   background-image: cover;
   color: $platinum;
-
-// background-color: $light-green;
 }
 
 .home-content-visitor{
-  // display: flex;
   width: 100vw;
   text-align: center;
-  // position: sticky;
-  // top: 0;
   height: 20vh;
   background-color: #0d18214a;
   padding-top: 16px;
@@ -31,56 +26,37 @@
   height: 80vh;
   i {
     color: $platinum;
+    margin: 10px;
 }
-  // height: 85vh;
-
 }
 
-// .banners{
-//   height: 80vh;
-//   // background-color: $dark-green;
-// }
 .banner {
   display: inline-block;
   background-size: cover;
   padding: 10px 0px;
-  // height: 70vh;
   width: 100vw;
-  // margin-top: 0px;
-  // margin-bottom: 20px;
+  margin: 0px 20px;
 }
 
-.sick-slider{
-  // height: 70vh;
-}
-.frame {
-  // height: 70vh;
-  // width: 100vw;
-  padding: 16px;
-  background-color: $light-green;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  vertical-align: middle;
-  text-align: left;
-  display: table-cell;
-}
+  img{
+    float: left;
+    width: 60%;
+    padding: 16px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border: 1px solid $light-green;
+    border-radius: 10px;
+    background-color: #0d18214a;
 
-.banner-text {
-  color: $platinum;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  position: relative;
-  padding: 20px;
-  text-align: right;
-  width: 50%;
+
+  }
+
+  .banner-text {
+  width: 40%;
+  margin-top: 250px;
   float: right;
-  margin-top: -140px;
-}
+  h2{
+    background-color: #0d18214a;
+    padding: 20px;
+  }
+  }
 
-
-img {
-  object-fit: cover;
-  max-width:100%;
-  max-height:100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-}
