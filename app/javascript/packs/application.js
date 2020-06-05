@@ -37,10 +37,12 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSelect2 } from '../plugins/init_select2';
 import { dropdownNavbar } from './dropdown_navbar';
+import { initSlick } from '../plugins/init_slick';
 
 document.addEventListener('turbolinks:load', () => {
 // dropdownNavbar();
 navbarToggle();
+initSlick();
 initMapbox();
 initAutocomplete();
 initSelect2();

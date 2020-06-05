@@ -7,8 +7,6 @@
 <%= f.input :company_name %>
 <%= f.input :website %>
 <%= f.input :address %>
-<div class="add-contact"></div>
-<%= link_to "Add a Contact", add_contact_path  %>
 <%= f.association :folder, collection: @user.folders %>
 <%= f.submit "Add this customer", class: "btn btn-dark-green" %>
 <% end %>

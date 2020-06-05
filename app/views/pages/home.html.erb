@@ -1,5 +1,5 @@
-<div class="container-fluid home">
       <% if user_signed_in? %>
+<div class="container-fluid home">
   <div class="row">
     <div class="col-10">
 
@@ -23,17 +23,53 @@
       <% end %>
     </div>
   </div>
+</div>
       <% else %>
+      <div class="container-fluid home home-visitor">
       <div class="home-content-visitor">
         <h1>Welcome to Customer Notes</h1>
         <%= link_to "Login", new_user_session_path, class: "btn btn-light-green", style: "margin-right: 10px; height: 41px;" %>
         <%= link_to "Sign Up",  new_user_registration_path, class: "btn btn-light-green", style: "margin-right: 0px; height: 41px;" %>
-        <hr>
-<!--         <p>Easily take notes during customer visits</p>
-        <p>Create a catalogue of products to follow your customers </p> -->
       </div>
 
-            <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+
+      <div class="carousel">
+      <i class="fas fa-arrow-circle-up top-arrow fa-lg"></i>
+
+      <div class="banners">
+
+
+        <div class="banner">
+         <%= image_tag "banner1", alt: "alttext" %>
+       </div>
+
+       <div class="banner" id="banner2">
+         <%= image_tag "banner2", alt: "alttext" %>
+       </div>
+
+       <div class="banner" id="banner3">
+        <%= image_tag "banner3", alt: "alttext" %>
+       </div>
+
+       <div class="banner" id="banner4">
+         <%= image_tag "banner4", alt: "alttext" %>
+       </div>
+
+     </div>
+     <i class="fas fa-arrow-circle-down bottom-arrow fa-lg"></i>
+     </div>
+
+
+<!-- <div class="banner">
+  <div class="frame">
+    <%= image_tag "customers", alt: "alttext" %>
+  </div>
+    <div class="banner-text">
+              <h1>Track your customers</h1>
+            </div>
+</div> -->
+
+            <!-- <div class="banner overlay" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
         url( <%= asset_path('customers.png') %>)">
         <div class="banner-text">
               <h1>Track your customers</h1>
@@ -61,7 +97,7 @@
         <div class="banner-text" style="float: left; text-align: left;">
               <h1>Quickly add customer notes and products</h1>
             </div>
-            </div>
+            </div> -->
       <% end %>
 
 

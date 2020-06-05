@@ -6,9 +6,6 @@
 <%= f.input :company_name %>
 <%= f.input :website %>
 <%= f.input :address %>
-<%= f.input :contact_name %>
-<%= f.input :contact_number%>
-<%= f.input :email %>
 <%= f.association :folder, collection: @user.folders %>
 <%= f.submit "Save this customer", class: "btn btn-dark-green" %>
 <% end %>
