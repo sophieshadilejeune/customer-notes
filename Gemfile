@@ -39,6 +39,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 
+gem "websocket-extensions", ">= 0.1.5"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
