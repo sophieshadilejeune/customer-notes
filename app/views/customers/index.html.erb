@@ -1,58 +1,62 @@
 <div class="container-fluid">
   <div class="row">
-  <div class="col-10">
+    <div class="col-10">
 
      <%  if (@user.folders.count) == 0 %>
-        <h2>Welcome!</h2>
-        <hr>
-        <p>Start your journey by adding a new folder to store your customers</p>
-        <%= link_to folders_path, class: "btn btn-light-green" do  %>
-        <i class="fas fa-plus"></i>
-        <span>Add a new folder</span>
+     <h2>Welcome!</h2>
+     <hr>
+     <p>Start your journey by adding a new folder to store your customers</p>
+     <%= link_to folders_path, class: "btn btn-light-green" do  %>
+     <i class="fas fa-plus"></i>
+     <span>Add a new folder</span>
+     <% end %>
+
+     <% else %>
+   </div>
+   <div class="col-6">
+    <%= link_to new_customer_path, class: "btn btn-light-green", style: "margin: 20px 0px" do  %>
+    <i class="fas fa-plus" style="margin-right: 5px"></i>
+    <span>Add a customer</span>
+    <% end %>
+    <h3>Folders</h3>
+    <% @folders.each do |folder| %>
+    <hr>
+
+    <p>> <%= folder.name %></p>
+    <% folder.customers.each do |customer|  %>
+
+    <div class="index-customer-card">
+
+      <h3><%= link_to customer.company_name, customer_path(customer)  %></h3>
+      <% if customer.address != "" %>
+
+      <p>Address: <%= customer.address %></p>
+      <% end %>
+      <% if !customer.customer_products.empty? %>
+      <div class="index-customer-products">
+        <ul>
+          <% customer.customer_products.each do |product| %>
+          <li><p><%= product.quantity %> x
+            <%= Product.where(id: product.product_id)[0].name
+            %></p></li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
+      </div>
+      <% end %>
 
-<% else %>
-</div>
-  <div class="col-6">
-          <%= link_to new_customer_path, class: "btn btn-light-green", style: "margin: 20px 0px" do  %>
-           <i class="fas fa-plus" style="margin-right: 5px"></i>
-          <span>Add a customer</span>
-          <% end %>
-<h3>Folders</h3>
-<% @folders.each do |folder| %>
-      <hr>
-
-<p>> <%= folder.name %></p>
-<% folder.customers.each do |customer|  %>
-
-          <div class="index-customer-card">
-
-              <h3><%= link_to customer.company_name, customer_path(customer)  %></h3>
-                      <p>Address: <%= customer.address %></p>
-              <div class="index-customer-products">
-              <ul>
-                <% customer.customer_products.each do |product| %>
-                <li><p><%= product.quantity %> x
-                  <%= Product.where(id: product.product_id)[0].name
-                  %></p></li>
-                  <% end %>
-                </ul>
-                </div>
-
-            </div>
-                <% end %>
-
-                <% end %>
-  </div>
+      <% end %>
+    </div>
 
     <div class="col-6">
       <div id="map"
       style="width: auto; height: 600px; position: sticky; top: 40px"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
     </div>
-    <% end %>
+  </div>
+  <% end %>
 </div>
 </div>
 

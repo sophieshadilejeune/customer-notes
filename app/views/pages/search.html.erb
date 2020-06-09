@@ -37,8 +37,12 @@
 <% @customers.each do |customer|  %>
           <div class="index-customer-card">
               <h3><%= link_to customer.company_name, customer_path(customer)  %></h3>
-              <p><%= customer.contact_name %></p>
+                    <% if customer.address != "" %>
+
               <p><%= customer.address %></p>
+              <% end %>
+                    <% if !customer.customer_products.empty? %>
+
             <div class="index-customer-products">
               <ul>
                 <% customer.customer_products.each do |product| %>
@@ -48,6 +52,7 @@
                   <% end %>
                 </ul>
               </div>
+              <% end %>
             </div>
                 <% end %>
                 <% else %>
