@@ -1,4 +1,6 @@
 <div class="container-fluid">
+
+
   <div class="row">
     <div class="col-10">
 
@@ -12,26 +14,53 @@
      <% end %>
 
      <% else %>
+
+     <%= link_to new_customer_path, class: "btn btn-light-green", style: "margin: 20px 0px" do  %>
+     <i class="fas fa-plus" style="margin-right: 5px"></i>
+     <span>Add a customer</span>
+     <% end %>
+
    </div>
-   <div class="col-6">
-    <%= link_to new_customer_path, class: "btn btn-light-green", style: "margin: 20px 0px" do  %>
-    <i class="fas fa-plus" style="margin-right: 5px"></i>
-    <span>Add a customer</span>
-    <% end %>
-    <h3>Folders</h3>
+ </div>
+
+<div class="row">
+  <div class="col-10" style="display: flex">
+
+    <div id="folder-tag">
+    All Customers
+    </div>
+
     <% @folders.each do |folder| %>
-    <hr>
+    <div id="folder-tag">
+    <%= folder.name %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+<hr>
 
-    <p>> <%= folder.name %></p>
-    <% folder.customers.each do |customer|  %>
+<div class="row">
+    <div class="col-12" id="customers-container">
 
-    <div class="index-customer-card">
+<% @customers.each do |customer| %>
 
+<div id="customer-card" data-folder="<%= customer.folder.name%>">
+  <div class="index-customer-card">
+<p style="color: grey; margin-top: -10px;"><%= customer.folder.name %></p>
       <h3><%= link_to customer.company_name, customer_path(customer)  %></h3>
-      <% if customer.address != "" %>
 
+      <% if customer.address != "" %>
       <p>Address: <%= customer.address %></p>
       <% end %>
+
+      <% if customer.contacts.count > 0 %>
+      <p>Contact(s):<p>
+      <% customer.contacts.each do |contact| %>
+      <p style="margin-left: 5px;"> > <%= contact.name %></p>
+      <% end %>
+      <% end %>
+
+
       <% if !customer.customer_products.empty? %>
       <div class="index-customer-products">
         <ul>
@@ -43,20 +72,20 @@
           </ul>
         </div>
         <% end %>
+
       </div>
-      <% end %>
+</div>
+<% end %>
 
-      <% end %>
-    </div>
 
-    <div class="col-6">
-      <div id="map"
-      style="width: auto; height: 600px; position: sticky; top: 40px"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-  <% end %>
 </div>
 </div>
+
+
+
+
+<% end %>
+
+</div>
+
 

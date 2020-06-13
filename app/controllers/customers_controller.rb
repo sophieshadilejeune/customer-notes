@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
       {
         lat: customer.latitude,
         lng: customer.longitude,
-        infoWindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
+        infowindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
       }
     end
   end
@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
       {
         lat: customer.latitude,
         lng: customer.longitude,
-        infoWindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
+        infowindow: render_to_string(partial: "../views/shared/info_window", locals: { customer: customer })
       }
     end
   end

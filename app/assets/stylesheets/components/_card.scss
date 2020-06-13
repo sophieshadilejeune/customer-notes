@@ -1,13 +1,14 @@
 .index-customer-card {
   overflow: hidden;
   height: auto;
+  width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
-  margin-bottom: 15px;
   border: 1px solid $light-green;
   border-radius: 5px;
   padding: 20px;
+  margin: 8px;
 
 }
 
