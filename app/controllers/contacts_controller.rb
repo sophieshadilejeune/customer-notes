@@ -14,12 +14,22 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:customer_id])
+    @contact = Contact.find(params[:id])
   end
 
   def update
+    @contact = Contact.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
+    @contact.update(params_contact)
+    redirect_to customer_path(@customer)
   end
 
   def destroy
+    @customer = Customer.find(params[:customer_id])
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    redirect_to customer_path(@customer)
   end
 
   private

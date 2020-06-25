@@ -30,7 +30,18 @@
 
 
             <%  @customer.contacts.each do |contact|  %>
+
             <div class="customer-card-contact-details">
+            <div id="edit-contact-list">
+
+        <%= link_to customer_contact_path(@customer, contact), method: :delete, data: { confirm: "Are you sure?", title: "Confirm Deletion"}, class: 'contact-delete-icon' do %>
+        <i class="fas fa-trash fa-lg"></i>
+        <% end %>
+
+            <%= link_to edit_contact_path(@customer, contact), remote: true , class: "contact-edit-icon" do %>
+              <i class="fas fa-edit"></i></i>
+            <% end %>
+
               <p><i class="fas fa-address-book" style="margin-right: 5px"></i>
                 <%= contact.name %></p>
                 <p>
@@ -40,18 +51,17 @@
 
 
                   </div>
+                </div>
+
                   <% end %>
 
-
-
-                </div>
                 <% if !@customer.latitude.nil? && !@customer.longitude.nil? %>
                   <%= render 'shared/map' %>
               <% end %>
 
             </div>
           </div>
-
+</div>
           <div class="col-6">
             <div class="customer-card-products">
               <%= link_to edit_products_path, remote: true do %>

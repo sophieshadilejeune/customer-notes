@@ -65,28 +65,36 @@ class CustomersController < ApplicationController
   end
 
   def edit_notes
-  @customer = Customer.find(params[:id])
-  respond_to do |format|
-    format.js
-  end
+    @customer = Customer.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit_products
-  @customer = Customer.find(params[:id])
-  @customer_products = @customer.customer_products
-  @customer_product = CustomerProduct.new
-  respond_to do |format|
-    format.js
-  end
+    @customer = Customer.find(params[:id])
+    @customer_products = @customer.customer_products
+    @customer_product = CustomerProduct.new
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def add_contact
-  @customer = Customer.find(params[:id])
-  @contacts = @customer.contacts
-  @contact = Contact.new
-  respond_to do |format|
-    format.js
+    @customer = Customer.find(params[:id])
+    @contacts = @customer.contacts
+    @contact = Contact.new
+    # respond_to do |format|
+    #   format.js
+    # end
   end
+
+  def edit_contact
+    @customer = Customer.find(params[:customer_id])
+    @contact = Contact.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

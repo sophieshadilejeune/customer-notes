@@ -39,16 +39,14 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initSlick } from '../plugins/init_slick';
 import { customersFilter } from './customers_filter';
 
-customersFilter();
 
-// $( document ).ready(function() {
 document.addEventListener('turbolinks:load', () => {
-// dropdownNavbar();
 navbarToggle();
 initSlick();
 initAutocomplete();
 initSelect2();
 initMapbox();
+customersFilter();
 });
 
 
