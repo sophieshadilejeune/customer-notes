@@ -32,7 +32,8 @@
     </div>
 
   <div class="row">
-    <div class="col-10">
+    <div class="col-12">
+      <div id="customers-container">
 <% if (((params[:query_customer].present?)  && !@results.empty?)  || ((params[:query_product].present?) && !@customer_products.empty?)) || ((!params[:query_customer].present?) && (!params[:query_product].present?))   %>
 <% @customers.each do |customer|  %>
           <div class="index-customer-card">
@@ -59,7 +60,7 @@
       <%= @message %>
                 <% end %>
 
-
+</div>
               </div>
             </div>
           </div>

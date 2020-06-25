@@ -1,10 +1,23 @@
+const customersContainerElement = document.querySelector("#customers-container-element")
 const customersContainer = document.querySelector("#customers-container")
 const folderTags = document.querySelectorAll("#folder-tag")
 const customerCards = document.querySelectorAll("#customer-card")
 
 const customersFilter = () => {
+
+  if (customersContainerElement) {
   folderTags.forEach((folderTag) => {
+
+
   folderTag.addEventListener("click", (event) => {
+
+      folderTags.forEach((folderTag) => {
+        folderTag.classList.remove("folder-selected");
+      });
+
+
+    folderTag.classList.add("folder-selected");
+
     customersContainer.innerHTML = "";
     const folderName = folderTag.innerText
       if (folderName === "All Customers") {
@@ -21,5 +34,5 @@ const customersFilter = () => {
   });
   });
 };
-
+};
 export { customersFilter }

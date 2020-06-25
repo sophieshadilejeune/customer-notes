@@ -9,6 +9,10 @@
   margin: 16px;
 }
 
+.folder-selected {
+ background-color: $light-green !important;
+ color: $black !important;
+}
 
 #customers-container {
   display: flex;
