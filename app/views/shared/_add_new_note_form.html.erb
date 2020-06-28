@@ -1,0 +1,14 @@
+      <div class="note-add-card">
+
+        <div>
+          <%= simple_form_for @note, validate: true, remote: true do |f| %>
+          <%= f.input :date %>
+          <%= f.input :title %>
+          <%= f.rich_text_area :content%>
+
+          <%= f.submit "Add this note", class: "btn btn-dark-green mt-2" %>
+          <% end %>
+  </div>
+
+
+</div>

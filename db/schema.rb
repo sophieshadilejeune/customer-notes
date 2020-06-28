@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_053945) do
+ActiveRecord::Schema.define(version: 2020_06_27_071511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,17 @@ ActiveRecord::Schema.define(version: 2020_06_03_053945) do
     t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "position"
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -127,4 +138,5 @@ ActiveRecord::Schema.define(version: 2020_06_03_053945) do
   add_foreign_key "customer_products", "customers"
   add_foreign_key "customer_products", "products"
   add_foreign_key "customers", "users"
+  add_foreign_key "notes", "users"
 end

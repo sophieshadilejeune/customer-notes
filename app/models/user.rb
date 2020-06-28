@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :folders, dependent: :destroy
   has_many :customer_products, through: :customers
   has_many :products, dependent: :destroy
+  has_many :notes, dependent: :destroy
 end

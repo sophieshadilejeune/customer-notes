@@ -1,0 +1,12 @@
+#notes-list .note-card {
+  cursor: grab;
+}
+
+#notes-list .note-card.active {
+  cursor: grabbing;
+}
+
+#notes-list .note-card.ghost {
+  filter: grayscale(1);
+  opacity: 0.5;
+}

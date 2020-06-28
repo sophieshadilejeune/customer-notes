@@ -11,7 +11,6 @@ require("channels")
 
 
 
-
 // gallery(imgs);
 // notesEditing();
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -38,6 +37,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSelect2 } from '../plugins/init_select2';
 import { initSlick } from '../plugins/init_slick';
 import { customersFilter } from './customers_filter';
+import { notesDragDrop } from './notes_dragdrop';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -47,8 +47,10 @@ initAutocomplete();
 initSelect2();
 initMapbox();
 customersFilter();
+notesDragDrop();
 });
 
 
 require("trix")
 require("@rails/actiontext")
+require("jquery-ui")

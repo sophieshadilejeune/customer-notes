@@ -1,3 +1,4 @@
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -55,5 +56,9 @@ class PagesController < ApplicationController
     else
       @customers = @user.customers
     end
+  end
+
+  def documents
+
   end
 end

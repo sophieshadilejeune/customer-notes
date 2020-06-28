@@ -38,6 +38,9 @@ gem 'simple_form'
 gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
+gem 'jquery-rails', '~> 4.3.1'
+gem 'acts_as_list'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 gem "websocket-extensions", ">= 0.1.5"
 

@@ -14,7 +14,14 @@ Rails.application.routes.draw do
 
   get 'map', to: 'pages#map', as: 'map'
   get 'search', to: 'pages#search', as: 'search'
+  get 'documents', to: 'pages#documents', as: 'documents'
+
 
   resources :products, except: [:show]
+  resources :notes do
+    collection do
+      patch :sort
+    end
+    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

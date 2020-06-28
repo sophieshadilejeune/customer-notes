@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top: 20px;">
+
+    <div class="col-sm-8 col-md-6 col-xl-6">
+            <%= link_to new_note_path, remote: true, class: "btn btn-dark-green", style: "margin: 10px 0px" do  %>
+            <i class="fas fa-plus" style="margin-right: 5px; color: white"></i>
+            <span>Add a new note</span>
+            <% end %>
+
+            <div class="add-new-note">
+            </div>
+
+    </div>
+  </div>
+  <div class="row">
+<!--     <div class="col-sm-8 col-md-6 col-xl-6">
+ -->
+
+      <div id="notes-list" data-url="<%= sort_notes_path  %>">
+      <% @notes.each do |note| %>
+      <div class="col-sm-4 col-md-3 col-xl-3 d-flex note-card" id=<%= dom_id(note) %>>
+
+        <div class="notes-content" >
+          <div class="notes-date"><%= note.date %></div>
+          <p><%= note.title %></p>
+          <hr>
+          <p><%= note.content %></p>
+
+        </div>
+</div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
